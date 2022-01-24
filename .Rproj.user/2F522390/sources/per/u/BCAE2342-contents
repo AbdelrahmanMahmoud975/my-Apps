@@ -1,0 +1,66 @@
+#we use package tidyverse this package includes package ggplot2
+library(tidyverse)
+library(ggplot2)
+#first we visualize dataset for bar charts
+#we visualize column Race
+ggplot(dataset,aes(x=race))+
+  geom_bar(color="blue",fill="blue",alpha=0.5)+
+  xlab("Race")+ylab("Count")+ggtitle("Viulize of Race")+theme_minimal()+
+  geom_bar(aes(x=race,fill=gender))
+  
+#we visualize column Region 
+ggplot(dataset,aes(x=Region))+
+  geom_bar(color="red",fill="red",alpha=0.5)+
+  xlab("Region")+ylab("Count")+ggtitle("Viulize of Region")+theme_minimal()
+
+#we visualize column manner of death
+ggplot(dataset,aes(x=manner_of_death))+
+  geom_bar(color="red",fill="red",alpha=0.5)+
+  xlab("manner_of_death")+ylab("Count")+ggtitle("Viulize of manner_of_death")+theme_minimal()+
+  geom_bar(aes(x=manner_of_death,fill=gender))
+#we visualize column state
+ggplot(dataset,aes(x=state))+
+  geom_bar(color="blue",fill="red",alpha=0.5)+xlim("Missouri","Michigan","Massachusetts","North Carolina")
+
+#we visualize column armed for bar charts
+ggplot(dataset,aes(x=armed))+geom_bar()+xlim("gun","knife","unarmed","toy weapon")
+
+#Second we visualize dataset for Histogram
+#we visualize column year
+ggplot(dataset,aes(x=year))+
+  geom_histogram(color="blue",fill="blue",alpha=0.5)
+
+#we visualize column age 
+ggplot(dataset,aes(age))+
+  geom_histogram(binwidth = 1,color="blue",fill="blue",alpha=0.5)
+
+
+qs,#most of those who killed in 2015 where killed in state California
+killed_in_2015<-filter(dataset,year==2015)
+ggplot(killed_in_2015,aes(x=state))+
+  geom_bar()+xlim("Washington","Oregon","Kansas","California","Oklahoma")
+
+#most of those who killed in 2015 where killed in 3rd Quarter
+ggplot(killed_in_2015,aes(x=Quarter))+
+  geom_bar(color="blue",fill="red", alpha=0.5)
+
+#most of those who killed in 2015 where manner of death by shot
+ggplot(killed_in_2015,aes(x=manner_of_death))+
+  geom_bar(aes(fill=factor(age)))
+#or
+ggplot(killed_in_2015,aes(x=manner_of_death))+
+  geom_bar(aes(fill=factor(gender)))
+
+#most of those who killed in 2015 where armed by gun
+ggplot(killed_in_2015,aes(x=armed))+
+  geom_bar(aes(fill=factor(gender)))+xlim("gun","knife","unarmed","toy weapon","undetermined")
+#xlim this function to select some of attributes from column
+
+
+
+#we will visualize dataset by box plot
+ggplot(dataset,aes(x=gender,y=age,fill=factor(gender)))+
+  geom_boxplot()+coord_flip()#coord_flip this function to returen graph
+
+
+

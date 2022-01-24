@@ -1,0 +1,18 @@
+library(tidyverse)
+library(ggplot2)
+#creating histogram
+ggplot(data1,aes(x=age))+
+  geom_histogram(binwidth = 5,aes(fill=factor(gender)))+
+  geom_histogram(binwidth=5,color="blue",fill="blue",alpha=0.5)+xlim(25,75)+
+  xlab("Age")+ylab("frequancy")+ggtitle("Age people was killed")
+#creating box plot
+ggplot(data1,aes(x=gender,y=age,fill=factor(gender)))+
+  geom_boxplot()+coord_flip()
+
+#creating denstiy
+ggplot(dataset,aes(x=age,fill=factor(gender)))+
+  geom_density(position = "stack",alpha=0.3)+xlim(25,75)
+
+ ggplot(dataset,aes(x=year))+
+   geom_histogram()
+ 

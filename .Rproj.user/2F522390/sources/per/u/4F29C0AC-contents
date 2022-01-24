@@ -1,0 +1,4 @@
+library(tidyverse)
+library(ggplot2)
+ggplot(dataset,aes(x=age))+
+  geom_histogram(binwidth = 5)

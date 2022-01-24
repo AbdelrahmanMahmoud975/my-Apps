@@ -1,0 +1,12 @@
+library(tidyverse)
+library(ggplot2)
+ggplot(cholest,aes(x=education))+geom_histogram(binwidth = 1)+
+  geom_histogram(binwidth = 1,aes(fill=factor(male)))+
+  geom_histogram(binwidth = 1, aes(y=..density..))+geom_density(color="red",size=5)
+
+
+ggplot(cholest,aes(x=age,y=male))+geom_point()+
+  geom_point(aes(color=factor(education),stroke=5))+
+  stat_smooth(se=F)
+  
+  

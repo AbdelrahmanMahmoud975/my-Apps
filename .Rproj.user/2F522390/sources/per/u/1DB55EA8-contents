@@ -1,0 +1,28 @@
+library(tidyverse)
+library(ggplot2)
+ggplot(data1,aes(x=race))+
+  geom_bar(color="blue",fill="blue",alpha=0.5)+
+  xlab("Race")+ylab("Count")+ggtitle("Viulize of Race")+theme_minimal()+
+  geom_bar(aes(x=race,fill=gender))
+
+ggplot(data1,aes(x=manner_of_death))+
+  geom_bar(color="blue",fill="blue",alpha=0.5)+
+  xlab("manner_of_death")+ylab("Count")+ggtitle("Viulize of manner_of_death")+theme_minimal()+
+  geom_bar(aes(x=manner_of_death,fill=threat_level))
+  
+ggplot(data1,aes(x=age))+
+  geom_histogram(binwidth = 5,aes(fill=factor(gender)))+
+  geom_histogram(binwidth=5,color="blue",fill="blue",alpha=0.5)+xlim(25,75)+
+  xlab("Age")+ylab("frequancy")+ggtitle("Age people was killed")
+  
+
+
+column<-select(dataset,year)
+column
+
+row<-filter(dataset,year==2015)  
+ggplot(dataset,aes(x=state))+
+  geom_bar()
+
+
+
